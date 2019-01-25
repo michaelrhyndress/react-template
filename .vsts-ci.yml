@@ -1,0 +1,40 @@
+resources:
+- repo: self
+queue:
+  name: WindowsDevOps #Hosted #WindowsDevOps
+  demands: npm
+
+steps:
+- task: checkmarx.cxsast.cx-scan-task.Security static source code analysis@88
+  displayName: 'Security static source code analysis'
+  inputs:
+    CheckmarxService: 'Checkmarx_PD'
+    projectName: '$(Build.Repository.Name)'
+    fullTeamName: 'CxServer\TDCC\Dow-chemical\ICRM'
+    high: 0
+    medium: 0
+
+
+- task: Npm@1
+  displayName: 'npm install'
+  inputs:
+    verbose: false
+
+
+- task: Npm@1
+  displayName: 'npm custom'
+  inputs:
+    command: custom
+    verbose: false
+    customCommand: 'run start:build'
+
+
+- task: ArchiveFiles@2
+  displayName: 'Archive files'
+  inputs:
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/dist'
+    includeRootFolder: false
+
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish artifacts: drop'
