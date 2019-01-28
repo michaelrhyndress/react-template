@@ -3,6 +3,6 @@ export const authConfig = {
     clientID: '', //Put app client ID here
     cacheLocation: 'localStorage',
     scopes: [
-    	"https://graph.microsoft.com/user_impersonation"
+    	"https://graph.microsoft.com/.default"
     ]
 };
