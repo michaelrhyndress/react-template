@@ -78,7 +78,7 @@ export default class Header extends Component {
 						<h3 class="bm-item" style={{display: 'block', outline: 'none', textAlign: 'center'}}>
 							<img alt="The Dow Chemical Company" src={Logo} style={{height: '1.5em'}} />
 						</h3>
-						<Link to="/" className="menu-item">Manage Guests</Link>
+						<Link to="/" className="menu-item">Home</Link>
 						<Link to="/404" className="menu-item">Whoops!</Link>
 						<a className="menu-item" onClick={() => logout()}>Logout</a>
 					</Menu>
