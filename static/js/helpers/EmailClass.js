@@ -7,8 +7,8 @@ export default class Email {
 				saveToSentItems,contentType,
 				importance) 
 	{
-		this.subject = subject || "Guest notification";
-		this.body = body || "Changes have been made to your Dow guest account."
+		this.subject = subject || "Notification";
+		this.body = body || ""
 		this.toRecipients = toRecipients || [];
 		this.ccRecipients = ccRecipients || [];
 		this.saveToSentItems = saveToSentItems || false;
